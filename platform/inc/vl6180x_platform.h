@@ -178,7 +178,7 @@ typedef uint8_t VL6180xDev_t; /* simplest single device example "dev" is the i2c
 
 /*! [device_type_multi] */
 
-struct MyDev_t {
+typedef struct {
     struct VL6180xDevData_t Data; /*!< embed ST VL6180 Dev  data as "Data"*/
     /*!< user specific field */
     uint8_t i2c_address;      /*!< i2c device address user specific field */
@@ -186,8 +186,8 @@ struct MyDev_t {
     SemaphoreHandle_t mutex;  // mutex
     // user specific field */ int     i2c_file;                      /*!< sample
     // i2c file handle */
-};
-typedef struct MyDev_t *VL6180xDev_t;
+} VL6180xDevDriver_t;
+typedef VL6180xDevDriver_t *VL6180xDev_t;
 
 /**
  * @def VL6180xDevDataGet
